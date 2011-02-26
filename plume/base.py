@@ -53,10 +53,10 @@ class PlumeMaster(object):
     def reset(self):
         statuses = self.statuses
         configs = self.configs
-        # master.unmap_all()
+        # self.unmap_all()
         for name, status in statuses.items():
             if name != status['physicalNode']:
-                master.unmap(status['physicalNode'], name)
+                self.master.unmap(status['physicalNode'], name)
         for name in configs:
-            master.decommission(name)
-        master.refresh_all()
+            self.master.decommission(name)
+        self.master.refresh_all()
